@@ -2,6 +2,7 @@ import test from 'ava';
 
 test( 'package exports correct exports', async ( t ) => {
 	const expectedImports = [
+		'detectPackageManager'
 	];
 
 	const pkg = await import( '../src/index.js' );
