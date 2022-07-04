@@ -1,6 +1,6 @@
 {
   "name": "@comandeer/apm",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Any package manager",
   "type": "module",
   "exports": {
