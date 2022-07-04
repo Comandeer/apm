@@ -1,0 +1,85 @@
+{
+  "name": "@comandeer/apm",
+  "version": "0.0.0",
+  "description": "Any package manager",
+  "type": "module",
+  "exports": {
+    "import": "./dist/apm.mjs"
+  },
+  "bin": {
+    "apm": "./bin/apm.js"
+  },
+  "types": "apm.d.ts",
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "engines": {
+    "node": ">=16.12.0"
+  },
+  "engineStrict": true,
+  "scripts": {
+    "lint": "eslint --ext .js,.cjs,.mjs ./src/**/*.js ./tests/**/*.js",
+    "pretest": "npm run lint && npm run build",
+    "test": "c8 ava",
+    "build": "rlb",
+    "version": "npm test && npm run build && git add -f dist/",
+    "postversion": "git rm -r --cached dist/ && git commit -m \"chore(dist): clean after release [ci skip]\" && git push origin && git push origin --tags",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Comandeer/apm.git"
+  },
+  "keywords": [
+    "npm",
+    "pnpm",
+    "yarn",
+    "any-package-manager"
+  ],
+  "author": "Comandeer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Comandeer/apm/issues"
+  },
+  "homepage": "https://github.com/Comandeer/apm#readme",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "commitplease": {
+    "nohook": true,
+    "style": "angular",
+    "types": [
+      "feat",
+      "improvement",
+      "fix",
+      "docs",
+      "style",
+      "refactor",
+      "perf",
+      "test",
+      "build",
+      "ci",
+      "chore",
+      "revert"
+    ],
+    "scope": "\\S+.*"
+  },
+  "devDependencies": {
+    "@comandeer/eslint-config": "^0.8.0",
+    "@comandeer/rollup-lib-bundler": "^0.16.0",
+    "ava": "^4.3.0",
+    "c8": "^7.11.3",
+    "commitplease": "^3.2.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.19.0",
+    "husky": "^8.0.1",
+    "mock-fs": "^5.1.2"
+  },
+  "dependencies": {
+    "execa": "^6.1.0",
+    "yargs": "^17.5.1"
+  }
+}
