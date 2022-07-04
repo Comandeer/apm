@@ -41,6 +41,10 @@ For now, the algorithm for detecting the right package manager is:
 	* [`yarn.lock`](https://classic.yarnpkg.com/lang/en/docs/yarn-lock/) for `yarn`;
 * otherwise, fallback to `npm`.
 
+## Known limitations
+
+* `npx`, `pnpx` and `yarn dxl` are not currently supported. There's a plan to add `apx` binary in one of the following versions.
+
 ## License
 
 See [LICENSE](./LICENSE) file for details.
