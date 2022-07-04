@@ -79,6 +79,7 @@
     "mock-fs": "^5.1.2"
   },
   "dependencies": {
+    "chalk": "^5.0.1",
     "execa": "^6.1.0",
     "yargs": "^17.5.1"
   }
