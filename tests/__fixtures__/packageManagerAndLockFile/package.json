@@ -1,0 +1,9 @@
+{
+  "name": "simpleloader",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "packageManager": "yarn@1.2.2"
+}
