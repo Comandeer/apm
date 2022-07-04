@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import test from 'ava';
 import mockFS from 'mock-fs';
 import { findFile } from '../src/utilities.js';
+import { parsePackageManagerField } from '../src/utilities.js';
 
 const __dirname = dirname( fileURLToPath( import.meta.url ) );
 const fixtureDirPath = resolvePath( __dirname, '__fixtures__' );
@@ -53,4 +54,15 @@ test( 'findFile() returns null if reaches / without finding package.json file', 
 	const resolvedProjectRoot = await findFile( 'package.json', emptyDirPath );
 
 	t.is( resolvedProjectRoot, null );
+} );
+
+test( 'parsePackageManagerField() returns the correct package manager from packageManager field', async ( t ) => {
+	const packageManagerField = 'npm@8.3.1';
+	const expectedPackageManager = {
+		name: 'npm',
+		version: '8.3.1'
+	};
+	const actualPackageManager = parsePackageManagerField( packageManagerField );
+
+	t.deepEqual( actualPackageManager, expectedPackageManager );
 } );

@@ -27,4 +27,14 @@ async function findFile( fileName, startDir, {
 	} );
 }
 
+function parsePackageManagerField( packageManager ) {
+	const [ name, version ] = packageManager.split( '@' );
+
+	return {
+		name,
+		version
+	};
+}
+
 export { findFile };
+export { parsePackageManagerField };
